@@ -1,0 +1,10 @@
+D:\Facultate\An IV\IA\Project\IA-Project\proiect\bin\Debug\proiect.exe.config
+D:\Facultate\An IV\IA\Project\IA-Project\proiect\bin\Debug\proiect.exe
+D:\Facultate\An IV\IA\Project\IA-Project\proiect\bin\Debug\proiect.pdb
+D:\Facultate\An IV\IA\Project\IA-Project\proiect\obj\Debug\proiect.csprojAssemblyReference.cache
+D:\Facultate\An IV\IA\Project\IA-Project\proiect\obj\Debug\proiect.main_form.resources
+D:\Facultate\An IV\IA\Project\IA-Project\proiect\obj\Debug\proiect.Properties.Resources.resources
+D:\Facultate\An IV\IA\Project\IA-Project\proiect\obj\Debug\proiect.csproj.GenerateResource.cache
+D:\Facultate\An IV\IA\Project\IA-Project\proiect\obj\Debug\proiect.csproj.CoreCompileInputs.cache
+D:\Facultate\An IV\IA\Project\IA-Project\proiect\obj\Debug\proiect.exe
+D:\Facultate\An IV\IA\Project\IA-Project\proiect\obj\Debug\proiect.pdb
