@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace proiect
 {
-    public partial class Form1 : Form
+    public partial class main_form : Form
     {
-        public Form1()
+        public main_form()
         {
             InitializeComponent();
+        }
+
+        private void elem_7_1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
