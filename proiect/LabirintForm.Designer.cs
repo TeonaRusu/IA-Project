@@ -1203,7 +1203,6 @@
             this.elem_7_1.TabIndex = 84;
             this.elem_7_1.Text = "1";
             this.elem_7_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.elem_7_1.TextChanged += new System.EventHandler(this.elem_7_1_TextChanged);
             // 
             // elem_7_14
             // 

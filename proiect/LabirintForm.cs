@@ -17,9 +17,6 @@ namespace proiect
             InitializeComponent();
         }
 
-        private void elem_7_1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
