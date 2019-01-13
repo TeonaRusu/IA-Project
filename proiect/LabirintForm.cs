@@ -15,6 +15,8 @@ namespace proiect
         Graph _graph;
         int _noNodes;
         List<int>[] _adjacentList;
+        int _start;
+        int _goal;
 
         public main_form()
         {
@@ -38,15 +40,28 @@ namespace proiect
             }
         }
 
+        private void ReadStartGoal()
+        {
+            _start = Convert.ToInt32(textBox_start.Text);
+            _goal = Convert.ToInt32(textBox_goal.Text);
+        }
+
         private void button_start_Click(object sender, EventArgs e)
         {
             _graph = new Graph(15);
             _noNodes = _graph.get_noNodes();
             _adjacentList = _graph.adjacentList;
 
+            /* citeste matricea de adiacenta si creeaza lista de adiacenta */
             ReadAdjacentMatrix();
+
+            /* citeste start si goal */
+            ReadStartGoal();
+
             /* doar ptr a verifica daca se citeste bine matricea de adiacenta si se creeaza lista; stergem dupa*/
             textBoxResults.ResetText();
+            textBoxResults.Text = "Start: " + _start.ToString();
+            textBoxResults.AppendText("\r\nGoal: " + _goal.ToString() + "\r\n");
             for (int i = 0; i < _adjacentList.Length; ++i)
             {
                 textBoxResults.AppendText((i).ToString() + " -> ");
