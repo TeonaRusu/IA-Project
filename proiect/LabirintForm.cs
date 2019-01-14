@@ -17,6 +17,7 @@ namespace proiect
         List<int>[] _adjacentList;
         int _start;
         int _goal;
+        
 
         public main_form()
         {
@@ -62,6 +63,7 @@ namespace proiect
             textBoxResults.ResetText();
             /*textBoxResults.Text = "Start: " + _start.ToString();
             textBoxResults.AppendText("\r\nGoal: " + _goal.ToString() + "\r\n");
+            */
             for (int i = 0; i < _adjacentList.Length; ++i)
             {
                 textBoxResults.AppendText((i).ToString() + " -> ");
@@ -74,7 +76,8 @@ namespace proiect
             }
             /* ------- */
 
-            BiDirSearch(_start, _goal);
+            if ( BiDirSearch(_start, _goal) == -1 )
+                textBoxResults.AppendText("\r\n Nu exista cale!"); ;
             
 
         }
@@ -82,12 +85,14 @@ namespace proiect
         private void BFS(Queue<int> queue, bool[] visited, int[] parent)
         {
             int current = queue.Peek();
+
             queue.Dequeue();
 
             for (int j = 0; j < _adjacentList[current].Count; ++j)
             {
                 if (!visited[_adjacentList[current][j]])
                 {
+                    parent[_adjacentList[current][j]] = current;
                     visited[_adjacentList[current][j]] = true;
                     textBoxResults.AppendText(_adjacentList[current][j] + " ");
                     queue.Enqueue(_adjacentList[current][j]);
@@ -99,11 +104,11 @@ namespace proiect
         {
             for (int i = 0; i < _noNodes; i++)
             {
-                // if a vertex is visited by both front 
-                // and back BFS search return that node 
-                // else return -1 
                 if (s_visited[i] && t_visited[i])
+                {
+                    textBoxResults.AppendText("\n\ri --> " + i.ToString());
                     return i;
+                }
             }
             return -1;
         }
@@ -111,29 +116,30 @@ namespace proiect
         private void printPath(int[] s_parent, int[] t_parent, int s, int t, int intersectNode)
         {
             Queue<int> path = new Queue<int>();
+            Queue<int> pathReversed;
             path.Enqueue(intersectNode);
-
             int i = intersectNode;
-
+        
             while (i != s)
             {
                 path.Enqueue(s_parent[i]);
                 i = s_parent[i];
             }
-            path.Reverse();
+
+            pathReversed = new Queue<int>(path.Reverse());
 
             i = intersectNode;
 
             while (i != t)
             {
-                path.Enqueue(t_parent[i]);
+                pathReversed.Enqueue(t_parent[i]);
                 i = t_parent[i];
             }
 
-            Queue<int>.Enumerator j;
-            while (path.Count > 0)
+            textBoxResults.AppendText("\r\n Path: ");
+            while (pathReversed.Count > 0)
             {
-                textBoxResults.AppendText(path.Dequeue().ToString() + " ");
+                textBoxResults.AppendText(pathReversed.Dequeue().ToString() + " ");
             }
 
         }
@@ -171,17 +177,13 @@ namespace proiect
                 BFS(t_queue, t_visited, t_parent);
 
                 intersectNode = IsIntersecting(s_visited, t_visited);
-
-                /*if (intersectNode != -1)
+                if (intersectNode != -1)
                 {
                     printPath(s_parent, t_parent, s, t, intersectNode);
-                    break;
-                }*/
+                    return 1;
+                }
             }
-
-            foreach (var i in s_queue.ToArray())
-                textBoxResults.AppendText(i.ToString());
-
+            
             return -1;
         }
     }
